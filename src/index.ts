@@ -6,6 +6,8 @@ import cors from 'cors';
 import compression from 'compression';
 import mongoose from 'mongoose';
 
+import MONGO_URL from '../db.config';
+
 const app = express();
 
 app.use(cors({
@@ -23,7 +25,7 @@ server.listen(8080, () => {
 })
 
 
-const MONGO_URL = ""
+// const MONGO_URL = ""
 
 mongoose.Promise = Promise;
 mongoose.connect(MONGO_URL);
