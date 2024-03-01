@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import cookeiParser from 'cookie-parser';
 import cors from 'cors';
 import compression from 'compression';
+import mongoose from 'mongoose';
 
 const app = express();
 
@@ -20,3 +21,10 @@ const server = http.createServer(app);
 server.listen(8080, () => {
     console.log("Server running on http://localhost:8080")
 })
+
+
+const MONGO_URL = ""
+
+mongoose.Promise = Promise;
+mongoose.connect(MONGO_URL);
+mongoose.connection.on('error', (error: Error) => console.error(error));
