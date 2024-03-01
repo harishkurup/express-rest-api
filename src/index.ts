@@ -7,6 +7,7 @@ import compression from 'compression';
 import mongoose from 'mongoose';
 
 import MONGO_URL from '../db.config';
+import router from './router';
 
 const app = express();
 
@@ -30,3 +31,6 @@ server.listen(8080, () => {
 mongoose.Promise = Promise;
 mongoose.connect(MONGO_URL);
 mongoose.connection.on('error', (error: Error) => console.error(error));
+
+
+app.use(router());
